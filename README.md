@@ -2,7 +2,7 @@
 
 A set of productivity boosting helpers to make life with Laravel Doctrine simpler and faster.
 
-![Build Status](https://github.com/szainmehdi/laravel-doctrine-jetpack/workflows/PHP%20Composer/badge.svg)
+![Build Status](https://github.com/szainmehdi/laravel-doctrine-jetpack/workflows/Tests/badge.svg)
 
 ## Installation
 
