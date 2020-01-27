@@ -41,6 +41,18 @@ php artisan make:doctrine:mapping MyValue --value
 
 By default, this will create a new file in `app/Database/Doctrine/Mappings/Values/` called `MyValueMapping.php`. 
 
+## Running Tests
+Check out the project locally, and run:
+
+```bash
+composer install
+
+composer test
+
+# or, using docker
+docker-compose run --rm php composer test
+```
+
 ## TODOs
 - [ ] Make everything configurable easily.
 - [ ] Eventually make alternative mapping stubs?
