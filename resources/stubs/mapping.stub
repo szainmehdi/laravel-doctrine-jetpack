@@ -1,0 +1,20 @@
+<?php declare(strict_types=1);
+
+namespace DummyNamespace;
+
+use TargetNs\TargetCls;
+use LaravelDoctrine\Fluent\SomeMapper;
+use LaravelDoctrine\Fluent\Fluent;
+
+class DummyClass extends SomeMapper
+{
+    public function mapFor()
+    {
+        return TargetCls::class;
+    }
+
+    public function map(Fluent $map)
+    {
+        PlaceholderMapping
+    }
+}
