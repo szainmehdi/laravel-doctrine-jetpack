@@ -3,14 +3,14 @@
 namespace Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use Zain\LaravelDoctrine\Jetpack\GeneratorServiceProvider;
+use Zain\LaravelDoctrine\Jetpack\JetpackServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
     protected function getPackageProviders($app)
     {
         return [
-            GeneratorServiceProvider::class,
+            JetpackServiceProvider::class,
         ];
     }
 }
