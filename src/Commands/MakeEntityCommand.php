@@ -76,7 +76,7 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\\' . config('jetpack.entity_namespace');
+        return $rootNamespace . '\\' . config('jetpack.entities_namespace');
     }
 
     /**
