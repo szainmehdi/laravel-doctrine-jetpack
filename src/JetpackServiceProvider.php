@@ -8,6 +8,8 @@ use Zain\LaravelDoctrine\Jetpack\Commands\MakeMappingCommand;
 
 class JetpackServiceProvider extends ServiceProvider
 {
+    public const DEFAULT_STUBS_DIRECTORY = __DIR__ . '/../resources/stubs/';
+
     /**
      * Boot the service provider
      */
@@ -16,7 +18,11 @@ class JetpackServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 $this->getConfigFilePath() => config_path('jetpack.php'),
-            ]);
+            ], 'config');
+
+            $this->publishes([
+                $this->getResourceDirectory() => resource_path('jetpack'),
+            ], 'config');
         }
     }
 
@@ -35,8 +41,13 @@ class JetpackServiceProvider extends ServiceProvider
         }
     }
 
-    public function getConfigFilePath(): string
+    private function getConfigFilePath(): string
     {
         return __DIR__ . '/../config/jetpack.php';
+    }
+
+    private function getResourceDirectory(): string
+    {
+        return __DIR__ . '/../resources';
     }
 }

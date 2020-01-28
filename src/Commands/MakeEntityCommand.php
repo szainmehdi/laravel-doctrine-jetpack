@@ -65,7 +65,7 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return config('jetpack.stubs_dir') . 'entity.stub';
+        return config('jetpack.stubs_dir', ) . 'entity.stub';
     }
 
     /**

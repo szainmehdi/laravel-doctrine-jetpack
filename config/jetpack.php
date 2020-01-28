@@ -1,4 +1,5 @@
 <?php
+use Zain\LaravelDoctrine\Jetpack\JetpackServiceProvider;
 
 return [
     /**
@@ -23,7 +24,8 @@ return [
 
     /**
      * Load stubs files from this directory.
-     * You can point this to your own stubs location.
+     * Make sure the path ends with a /
+     * e.g. resource_path('jetpack/stubs/'),
      */
-    'stubs_dir' => __DIR__ . '/../resources/stubs/',
+     'stubs_dir' => JetpackServiceProvider::DEFAULT_STUBS_DIRECTORY,
 ];
