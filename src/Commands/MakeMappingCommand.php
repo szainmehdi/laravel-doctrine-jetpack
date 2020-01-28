@@ -101,9 +101,9 @@ class MakeMappingCommand extends GeneratorCommand
         // Replace directory separator with namespace separator
         $entity = str_replace(DIRECTORY_SEPARATOR, '\\', $name);
 
-        $subNamespace = ($this->option('value')
+        $subNamespace = $this->option('value')
             ? config('jetpack.values_namespace')
-            : config('jetpack.entities_namespace'));
+            : config('jetpack.entities_namespace');
 
         $namespace = $this->rootNamespace() . $subNamespace . '\\';
 
