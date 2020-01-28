@@ -7,8 +7,6 @@ use Symfony\Component\Console\Input\InputOption;
 
 class MakeEntityCommand extends GeneratorCommand
 {
-    const ENTITY_NAMESPACE = 'Entities';
-
     /**
      * The console command name.
      *
@@ -54,10 +52,8 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function createMapping(): void
     {
-        $name = $this->argument('name');
-
         $this->call('make:mapping', [
-            'class' => $name,
+            'class' => $this->getNameInput(),
             '--force' => $this->option('force')
         ]);
     }
@@ -69,7 +65,7 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../../resources/stubs/entity.stub';
+        return config('jetpack.stubs_dir', ) . 'entity.stub';
     }
 
     /**
@@ -80,7 +76,7 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\\' . self::ENTITY_NAMESPACE;
+        return $rootNamespace . '\\' . config('jetpack.entities_namespace');
     }
 
     /**

@@ -3,17 +3,13 @@
 namespace Zain\LaravelDoctrine\Jetpack\Commands;
 
 use Illuminate\Console\GeneratorCommand;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Str;
-use ReflectionClass;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Debug\Exception\ClassNotFoundException;
 
 class MakeMappingCommand extends GeneratorCommand
 {
     private const VALUE_MAPPER = 'EmbeddableMapping';
     private const ENTITY_MAPPER = 'EntityMapping';
-    private const DEFAULT_MAPPING_NAMESPACE = 'Database\Doctrine\Mappings';
 
     /**
      * The console command name.
@@ -30,6 +26,13 @@ class MakeMappingCommand extends GeneratorCommand
     protected $description = 'Create a new Doctrine Mapping';
 
     /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Mapping';
+
+    /**
      * Get the default namespace for the class.
      *
      * @param  string  $rootNamespace
@@ -37,7 +40,7 @@ class MakeMappingCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        $namespace = $rootNamespace . '\\' . self::DEFAULT_MAPPING_NAMESPACE;
+        $namespace = $rootNamespace . '\\' . config('jetpack.mappings_namespace');
 
         if ($this->option('value')) {
             $namespace .= '\\' . 'Values';
@@ -98,7 +101,11 @@ class MakeMappingCommand extends GeneratorCommand
         // Replace directory separator with namespace separator
         $entity = str_replace(DIRECTORY_SEPARATOR, '\\', $name);
 
-        $namespace = $this->rootNamespace() . ($this->option('value') ? 'Values\\' : 'Entities\\');
+        $subNamespace = $this->option('value')
+            ? config('jetpack.values_namespace')
+            : config('jetpack.entities_namespace');
+
+        $namespace = $this->rootNamespace() . $subNamespace . '\\';
 
         if (Str::startsWith($entity, $this->rootNamespace())) {
             $namespace = null;
@@ -125,7 +132,7 @@ class MakeMappingCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../../resources/stubs/mapping.stub';
+        return config('jetpack.stubs_dir') . 'mapping.stub';
     }
 
     /**

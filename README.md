@@ -57,4 +57,5 @@ docker-compose run --rm php composer test
 
 ## TODOs
 - [ ] Make everything configurable easily.
+- [ ] Document configuration options
 - [ ] Eventually make alternative mapping stubs?
