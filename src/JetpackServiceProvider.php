@@ -22,7 +22,7 @@ class JetpackServiceProvider extends ServiceProvider
 
             $this->publishes([
                 $this->getResourceDirectory() => resource_path('jetpack'),
-            ], 'config');
+            ], 'resources');
         }
     }
 
