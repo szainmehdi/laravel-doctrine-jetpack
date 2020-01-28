@@ -35,7 +35,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Zain\\LaravelDoctrine\\Generators\\GeneratorServiceProvider"
+				"Zain\\LaravelDoctrine\\Generators\\JetpackServiceProvider"
 			]
 		}
 	},
