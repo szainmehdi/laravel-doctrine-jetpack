@@ -2,7 +2,10 @@
 
 A set of productivity boosting helpers to make life with Laravel Doctrine simpler and faster.
 
-![Build Status](https://github.com/szainmehdi/laravel-doctrine-jetpack/workflows/Tests/badge.svg)
+[![Build Status](https://github.com/szainmehdi/laravel-doctrine-jetpack/workflows/Tests/badge.svg)](https://github.com/szainmehdi/laravel-doctrine-jetpack/actions?query=workflow%3ATests)
+[![Latest Stable Version](https://poser.pugx.org/zain/laravel-doctrine-jetpack/v/stable)](https://packagist.org/packages/zain/laravel-doctrine-jetpack)
+[![License](https://poser.pugx.org/zain/laravel-doctrine-jetpack/license)](https://packagist.org/packages/zain/laravel-doctrine-jetpack)
+[![Total Downloads](https://poser.pugx.org/zain/laravel-doctrine-jetpack/downloads)](https://packagist.org/packages/zain/laravel-doctrine-jetpack)
 
 ## Installation
 
