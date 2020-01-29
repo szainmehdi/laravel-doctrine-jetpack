@@ -32,10 +32,12 @@ class MakeEntityCommandTest extends TestCase
 
         namespace App\Entities;
         
-        use Ramsey\Uuid\Uuid;
-        use Ramsey\Uuid\UuidInterface;
+        use Illuminate\Contracts\Support\{Arrayable, Jsonable};
+        use JsonSerializable;
+        use Ramsey\Uuid\{Uuid, UuidInterface};
+        use Zain\LaravelDoctrine\Jetpack\Serializer\SerializesAttributes;
         
-        class Foo
+        class Foo implements Arrayable, Jsonable, JsonSerializable
         {
             use SerializesAttributes;
         
@@ -81,10 +83,12 @@ class MakeEntityCommandTest extends TestCase
 
         namespace App\Models;
         
-        use Ramsey\Uuid\Uuid;
-        use Ramsey\Uuid\UuidInterface;
+        use Illuminate\Contracts\Support\{Arrayable, Jsonable};
+        use JsonSerializable;
+        use Ramsey\Uuid\{Uuid, UuidInterface};
+        use Zain\LaravelDoctrine\Jetpack\Serializer\SerializesAttributes;
         
-        class Foo
+        class Foo implements Arrayable, Jsonable, JsonSerializable
         {
             use SerializesAttributes;
         

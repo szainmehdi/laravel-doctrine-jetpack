@@ -2,11 +2,12 @@
 
 namespace DummyNamespace;
 
-use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
+use Illuminate\Contracts\Support\{Arrayable, Jsonable};
+use JsonSerializable;
+use Ramsey\Uuid\{Uuid, UuidInterface};
 use Zain\LaravelDoctrine\Jetpack\Serializer\SerializesAttributes;
 
-class DummyClass
+class DummyClass implements Arrayable, Jsonable, JsonSerializable
 {
     use SerializesAttributes;
 
