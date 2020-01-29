@@ -1,3 +1,3 @@
-$map->increments('id');
+$map->uuidPrimaryKey();
 // ...
 $map->timestamps();

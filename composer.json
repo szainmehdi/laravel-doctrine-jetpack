@@ -39,7 +39,8 @@
 		"laravel": {
 			"providers": [
 				"Zain\\LaravelDoctrine\\Jetpack\\Providers\\JetpackServiceProvider",
-				"Zain\\LaravelDoctrine\\Jetpack\\Providers\\GeneratorServiceProvider"
+				"Zain\\LaravelDoctrine\\Jetpack\\Providers\\GeneratorServiceProvider",
+				"Zain\\LaravelDoctrine\\Jetpack\\Providers\\FluentServiceProvider"
 			]
 		}
 	},

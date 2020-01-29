@@ -45,7 +45,7 @@ class MakeMappingCommandTest extends TestCase
         
             public function map(Fluent $map)
             {
-                $map->increments('id');
+                $map->uuidPrimaryKey();
                 // ...
                 $map->timestamps();
             }
@@ -138,7 +138,7 @@ class MakeMappingCommandTest extends TestCase
         
             public function map(Fluent $map)
             {
-                $map->increments('id');
+                $map->uuidPrimaryKey();
                 // ...
                 $map->timestamps();
             }
@@ -187,7 +187,7 @@ class MakeMappingCommandTest extends TestCase
         
             public function map(Fluent $map)
             {
-                $map->increments('id');
+                $map->uuidPrimaryKey();
                 // ...
                 $map->timestamps();
             }
