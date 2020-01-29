@@ -13,6 +13,7 @@ use LaravelDoctrine\ORM\Extensions\MappingDriverChain;
 use LogicException;
 use ReflectionClass;
 use ReflectionException;
+use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 use Symfony\Component\Finder\Finder;
 
 class FluentServiceProvider extends ServiceProvider
@@ -71,7 +72,12 @@ class FluentServiceProvider extends ServiceProvider
     private function getMappingClasses(string $path): array
     {
         $finder = new Finder();
-        $finder->files()->in($path);
+        try {
+            $finder->files()->in($path);
+        } catch (DirectoryNotFoundException $e) {
+            logger()->error("zain/laravel-doctrine-jetpack: Error auto-loading mappings. " . $e->getMessage());
+            return [];
+        }
 
         $namespace = $this->app->getNamespace() . trim(str_replace([app_path(), DIRECTORY_SEPARATOR], ['', '\\'], $path), '\\');
         $mappings = [];
