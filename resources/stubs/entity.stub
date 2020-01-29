@@ -4,6 +4,7 @@ namespace DummyNamespace;
 
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
+use Zain\LaravelDoctrine\Jetpack\Serializer\SerializesAttributes;
 
 class DummyClass
 {

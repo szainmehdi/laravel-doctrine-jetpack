@@ -3,6 +3,7 @@
 namespace Zain\LaravelDoctrine\Jetpack\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -116,15 +117,12 @@ class MakeMappingCommand extends GeneratorCommand
 
     private function getPlaceholderMapping(): string
     {
-        if ($this->option('value')) {
-            return '// ...';
-        }
+        $stub = config('jetpack.stubs_dir') . 'mapping/' . ($this->option('value') ? 'value.stub' : 'entity.stub');
 
-        return <<<'TXT'
-        $map->uuidPk();
-                // ...
-                $map->timestamps();
-        TXT;
+        $contents = trim(File::get($stub));
+
+        // Make sure indentation is correct with 8 spaces.
+        return str_replace("\n", "\n        ", $contents);
     }
 
     /**
@@ -132,7 +130,7 @@ class MakeMappingCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return config('jetpack.stubs_dir') . 'mapping.stub';
+        return config('jetpack.stubs_dir') . 'mapping/class.stub';
     }
 
     /**
