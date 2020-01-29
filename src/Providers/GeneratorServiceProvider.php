@@ -15,7 +15,7 @@ class GeneratorServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 $this->getResourceDirectory() => resource_path('jetpack'),
-            ], 'resources');
+            ], 'jetpack-stubs');
         }
     }
 

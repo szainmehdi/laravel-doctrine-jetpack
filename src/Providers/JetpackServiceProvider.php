@@ -16,7 +16,7 @@ class JetpackServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 $this->getConfigFilePath() => config_path('jetpack.php'),
-            ], 'config');
+            ], 'jetpack-config');
         }
     }
 
