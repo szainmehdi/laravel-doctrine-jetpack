@@ -98,7 +98,7 @@ class FluentServiceProvider extends ServiceProvider
             }
 
             if ($class->implementsInterface(Mapping::class)) {
-                $mappings[] = $className;
+                $mappings[] = $class->getName();
             }
         }
 
