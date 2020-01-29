@@ -9,8 +9,7 @@ A set of productivity boosting helpers to make life with Laravel Doctrine simple
 
 ## Installation
 
-This package strictly requires:
-- php >= 7.4
+This package strictly requires `php >= 7.4`.
 
 **Require** the package using Composer.
 
@@ -129,6 +128,44 @@ class MyEntity implements Arrayable, Jsonable, JsonSerializable
 ```
 
 > **Note**: for the best experience with Laravel, I recommend having your Entity classes implement the three standard interfaces in the example above. This is not necessary but it will allow you to simply `return` your model from a controller, or inspect it in `tinker`. (I am not _recommending_ doing the former, but it is definitely useful for debugging in a pinch.)
+
+## Customization & Configuration
+
+This package allows you to easily customize almost every aspect of the generators. Get started by publishing 
+the config file.
+
+```bash
+php artisan vendor:publish --tag jetpack-config
+```
+
+This will create a file in your config directory called `jetpack.php`. Edit this file to change the default
+namespace for your Entities, Value Objects, and Mapping classes.
+
+--- 
+
+For advanced customization, this package allow you to customize the built-in stub files to your own needs.
+
+First, ensure you've already published the config file in the step above. Next, publish the
+stubs using the following command.
+
+```bash
+php artisan vendor:publish --tag jetpack-stubs
+```
+
+This will write the stub files to `resources/jetpack/stubs`. Feel free to edit the files as you please, but keep the 
+placeholder names intact.
+
+Finally, update `config/jetpack.php`:
+
+```php
+return [
+    'generators' => [
+        'stubs_directory' => resource_path('jetpack/stubs/'),
+        // ...
+    ],
+    // ...
+];
+``` 
 
 ## Development
 
