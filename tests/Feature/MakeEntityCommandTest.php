@@ -118,6 +118,6 @@ class MakeEntityCommandTest extends TestCase
         /** @var \Illuminate\Config\Repository $config */
         $config = $app->config;
 
-        $config->set('jetpack.entities_namespace', 'Models');
+        $config->set('jetpack.generators.namespaces.entities', 'Models');
     }
 }

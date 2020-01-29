@@ -41,7 +41,7 @@ class MakeMappingCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        $namespace = $rootNamespace . '\\' . config('jetpack.mappings_namespace');
+        $namespace = $rootNamespace . '\\' . config('jetpack.generators.namespaces.mappings');
 
         if ($this->option('value')) {
             $namespace .= '\\' . 'Values';
@@ -103,8 +103,8 @@ class MakeMappingCommand extends GeneratorCommand
         $entity = str_replace(DIRECTORY_SEPARATOR, '\\', $name);
 
         $subNamespace = $this->option('value')
-            ? config('jetpack.values_namespace')
-            : config('jetpack.entities_namespace');
+            ? config('jetpack.generators.namespaces.values')
+            : config('jetpack.generators.namespaces.entities');
 
         $namespace = $this->rootNamespace() . $subNamespace . '\\';
 
@@ -117,7 +117,7 @@ class MakeMappingCommand extends GeneratorCommand
 
     private function getPlaceholderMapping(): string
     {
-        $stub = config('jetpack.stubs_dir') . 'mapping/' . ($this->option('value') ? 'value.stub' : 'entity.stub');
+        $stub = config('jetpack.generators.stubs_directory') . 'mapping/' . ($this->option('value') ? 'value.stub' : 'entity.stub');
 
         $contents = trim(File::get($stub));
 
@@ -130,7 +130,7 @@ class MakeMappingCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return config('jetpack.stubs_dir') . 'mapping/class.stub';
+        return config('jetpack.generators.stubs_directory') . 'mapping/class.stub';
     }
 
     /**

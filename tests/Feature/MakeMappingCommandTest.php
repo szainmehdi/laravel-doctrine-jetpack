@@ -206,7 +206,7 @@ class MakeMappingCommandTest extends TestCase
         /** @var \Illuminate\Config\Repository $config */
         $config = $app->config;
 
-        $config->set('jetpack.mappings_namespace', 'Database\Definitions\Mappings');
+        $config->set('jetpack.generators.namespaces.mappings', 'Database\Definitions\Mappings');
     }
 
     /**
@@ -217,6 +217,6 @@ class MakeMappingCommandTest extends TestCase
         /** @var \Illuminate\Config\Repository $config */
         $config = $app->config;
 
-        $config->set('jetpack.entities_namespace', 'Domain\Models\Entities');
+        $config->set('jetpack.generators.namespaces.entities', 'Domain\Models\Entities');
     }
 }

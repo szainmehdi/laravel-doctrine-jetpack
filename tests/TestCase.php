@@ -3,7 +3,8 @@
 namespace Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use Zain\LaravelDoctrine\Jetpack\JetpackServiceProvider;
+use Zain\LaravelDoctrine\Jetpack\Providers\GeneratorServiceProvider;
+use Zain\LaravelDoctrine\Jetpack\Providers\JetpackServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
@@ -11,6 +12,7 @@ class TestCase extends OrchestraTestCase
     {
         return [
             JetpackServiceProvider::class,
+            GeneratorServiceProvider::class,
         ];
     }
 }

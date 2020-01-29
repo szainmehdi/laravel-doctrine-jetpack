@@ -15,7 +15,10 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
-        "orchestra/testbench": "^4.0"
+        "orchestra/testbench": "^4.0",
+		"laravel-doctrine/orm": "^1.0",
+		"laravel-doctrine/fluent": "^1.0",
+		"ramsey/uuid-doctrine": "^1.5"
     },
 	"suggest": {
 		"laravel-doctrine/orm": "^1.0",
@@ -35,7 +38,8 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Zain\\LaravelDoctrine\\Jetpack\\JetpackServiceProvider"
+				"Zain\\LaravelDoctrine\\Jetpack\\Providers\\JetpackServiceProvider",
+				"Zain\\LaravelDoctrine\\Jetpack\\Providers\\GeneratorServiceProvider"
 			]
 		}
 	},

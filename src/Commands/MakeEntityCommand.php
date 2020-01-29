@@ -65,7 +65,7 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return config('jetpack.stubs_dir', ) . 'entity.stub';
+        return config('jetpack.generators.stubs_directory', ) . 'entity.stub';
     }
 
     /**
@@ -76,7 +76,7 @@ class MakeEntityCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\\' . config('jetpack.entities_namespace');
+        return $rootNamespace . '\\' . config('jetpack.generators.namespaces.entities');
     }
 
     /**
