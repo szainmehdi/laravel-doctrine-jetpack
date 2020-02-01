@@ -108,6 +108,23 @@ php artisan make:doctrine:mapping MyValue --value
 
 By default, this will create a new file in `app/Database/Doctrine/Mappings/Values/` called `MyValueMapping.php`. 
 
+### FlushEntityManager Middleware
+
+Simplify the process of actually persisting your entities to the database using the included middleware.
+
+Add the middleware to your `app/Http/Kernel.php` file like so:
+```php
+class Kernel extends HttpKernel
+{
+    // ...
+
+    protected $middleware = [
+        // ...
+        \Zain\LaravelDoctrine\Jetpack\Middleware\FlushEntityManager::class,
+    ];
+}
+```
+
 ### Helpers
 
 #### Entity Serialization
