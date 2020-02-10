@@ -12,7 +12,7 @@ class MakeEntityCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'make:doctrine:entity';
+    protected $name = 'make:entity';
 
     /**
      * The console command description.

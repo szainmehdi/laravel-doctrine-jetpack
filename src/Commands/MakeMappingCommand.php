@@ -17,7 +17,7 @@ class MakeMappingCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'make:doctrine:mapping';
+    protected $name = 'make:mapping';
 
     /**
      * The console command description.

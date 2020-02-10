@@ -30,7 +30,7 @@ This package includes a few generators that allow you to speed up your workflow 
 Generate a new Doctrine entity using the included stub by running the following `artisan` command:
 
 ```bash
-php artisan make:doctrine:entity MyEntity
+php artisan make:entity MyEntity
 ```
 
 By default, this will create a new file in `app/Entities` called `MyEntity.php`, like so:
@@ -70,7 +70,7 @@ This package comes with a generator for [Laravel Doctrine's Fluent mapping drive
 The included command takes a _target entity_ as an argument and generates a mapping file.
 
 ```bash
-php artisan make:doctrine:mapping MyEntity
+php artisan make:mapping MyEntity
 ```
 
 By default, this will create a new file in `app/Database/Doctrine/Mappings/` called `MyEntityMapping.php`, like so:
@@ -103,7 +103,7 @@ class MyEntityMapping extends EntityMapping
 **Generate a Fluent Mapping class for a Value Object (Embeddable).**
 
 ```bash
-php artisan make:doctrine:mapping MyValue --value
+php artisan make:mapping MyValue --value
 ```
 
 By default, this will create a new file in `app/Database/Doctrine/Mappings/Values/` called `MyValueMapping.php`. 
