@@ -23,7 +23,7 @@ class MakeMappingCommandTest extends TestCase
 
         $this->assertFalse(File::exists($destination), 'The destination file already exists.');
 
-        Artisan::call('make:doctrine:mapping Foo');
+        Artisan::call('make:mapping Foo');
 
         $this->assertTrue(File::exists($destination), 'The file was not generated where we expect.');
 
@@ -70,7 +70,7 @@ class MakeMappingCommandTest extends TestCase
 
         $this->assertFalse(File::exists($destination), 'The destination file already exists.');
 
-        Artisan::call('make:doctrine:mapping Foo --value');
+        Artisan::call('make:mapping Foo --value');
 
         $this->assertTrue(File::exists($destination), 'The file was not generated where we expect.');
 
@@ -116,7 +116,7 @@ class MakeMappingCommandTest extends TestCase
 
         $this->assertFalse(File::exists($destination), 'The destination file already exists.');
 
-        Artisan::call('make:doctrine:mapping Foo');
+        Artisan::call('make:mapping Foo');
 
         $this->assertTrue(File::exists($destination), 'The file was not generated where we expect.');
 
@@ -165,7 +165,7 @@ class MakeMappingCommandTest extends TestCase
 
         $this->assertFalse(File::exists($destination), 'The destination file already exists.');
 
-        Artisan::call('make:doctrine:mapping Bar');
+        Artisan::call('make:mapping Bar');
 
         $this->assertTrue(File::exists($destination), 'The file was not generated where we expect.');
 
