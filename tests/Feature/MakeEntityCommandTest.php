@@ -23,7 +23,7 @@ class MakeEntityCommandTest extends TestCase
 
         $this->assertFalse(File::exists($destination), 'The destination file already exists.');
 
-        Artisan::call('make:doctrine:entity Foo');
+        Artisan::call('make:entity Foo');
 
         $this->assertTrue(File::exists($destination), 'The file was not generated where we expect.');
 
@@ -74,7 +74,7 @@ class MakeEntityCommandTest extends TestCase
 
         $this->assertFalse(File::exists($destination), 'The destination file already exists.');
 
-        Artisan::call('make:doctrine:entity Foo');
+        Artisan::call('make:entity Foo');
 
         $this->assertTrue(File::exists($destination), 'The file was not generated where we expect.');
 
