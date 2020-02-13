@@ -53,7 +53,7 @@ class MakeEntityCommand extends GeneratorCommand
     protected function createMapping(): void
     {
         $this->call('make:mapping', [
-            'class' => $this->getNameInput(),
+            'name' => $this->getNameInput(),
             '--force' => $this->option('force')
         ]);
     }
