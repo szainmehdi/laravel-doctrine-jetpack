@@ -2,7 +2,6 @@
 
 namespace Zain\LaravelDoctrine\Jetpack\Serializer;
 
-use LaravelDoctrine\ORM\Serializers\ArrayEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -17,11 +16,10 @@ trait SerializesAttributes
     public function toArray(): array
     {
         $normalizers = [$this->getObjectNormalizer(), $this->getDateTimeNormalizer()];
-        $encoders = [new ArrayEncoder()];
+        $encoders = [new JsonEncoder()];
 
-        /** @var array $serialized */
-        $serialized = (new Serializer($normalizers, $encoders))->serialize($this, ArrayEncoder::FORMAT);
-        return $serialized;
+        $serialized = (new Serializer($normalizers, $encoders))->serialize($this, JsonEncoder::FORMAT);
+        return json_decode($serialized, true);
     }
 
     /**
